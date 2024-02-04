@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}
+Post a Blogs
+{% endblock title %}
+{% block content %}
+<div class="container">
+  <h1 class='text-center text-primary mt-3'>Post a Blog</h1>
+  <form method="POST" action="{% url 'post_blogs' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <textarea name="content" id="content" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input type="text" name="author" id="author" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input type="text" name="image" id="image" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Blog</button>
+  </form>
+</div>
+{% endblock %}
